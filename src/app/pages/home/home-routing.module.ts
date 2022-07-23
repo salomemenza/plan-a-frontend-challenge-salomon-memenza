@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -16,11 +16,11 @@ const routes: Routes = [
         path: 'catalog',
         loadChildren: () => import('../catalog/catalog.module').then(m => m.CatalogPageModule)
       },
-      /*{
+      {
         path: '',
-        redirectTo: '/start/latest-movie',
+        redirectTo: 'latest-movie',
         pathMatch: 'full'
-      }*/
+      }
     ]
   }
 ];

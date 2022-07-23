@@ -1,12 +1,10 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
-import { LatestMoviePageRoutingModule } from './latest-movie-routing.module';
-
+import { FormsModule } from '@angular/forms';
 import { LatestMoviePage } from './latest-movie.page';
+import { LatestMoviePageRoutingModule } from './latest-movie-routing.module';
 
 @NgModule({
   imports: [
@@ -15,6 +13,7 @@ import { LatestMoviePage } from './latest-movie.page';
     IonicModule,
     LatestMoviePageRoutingModule
   ],
-  declarations: [LatestMoviePage]
+  declarations: [LatestMoviePage],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class LatestMoviePageModule {}

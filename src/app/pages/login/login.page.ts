@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 import { first } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 
@@ -19,11 +21,15 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private loadingCtrl: LoadingController,
-    private userService: UserService
+    private userService: UserService,
+    public menuCtrl: MenuController
   ) { 
   }
 
   ngOnInit() {
+    this.menuCtrl.enable(false);
+    this.menuCtrl.swipeGesture(false);
+
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -44,7 +50,10 @@ export class LoginPage implements OnInit {
           res.request_token
         ).pipe(first()).subscribe({
           next: (login) => {
-            console.log("respuesta del login", login);
+
+            this.menuCtrl.enable(true);
+            this.menuCtrl.swipeGesture(true);
+    
             this.router.navigate(['/tabs']);
           },
           error: (err) => {

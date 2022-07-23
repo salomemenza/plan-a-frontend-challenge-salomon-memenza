@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginPage } from './pages/login/login.page';
 
 @Component({
@@ -9,5 +10,12 @@ import { LoginPage } from './pages/login/login.page';
 export class AppComponent {
   rootPage:any = LoginPage;
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }

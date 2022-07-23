@@ -1,23 +1,26 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Movie App - Home</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Movie App - Home</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-tabs>
+    <ion-tabs>
 
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="latest-movie">
-        <ion-icon name="star"></ion-icon>
-        <ion-label>Latest movie</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="catalog">
-        <ion-icon name="videocam"></ion-icon>
-        <ion-label>Catalog</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  
-  </ion-tabs>
+        <ion-tab-bar slot="bottom">
+            <ion-tab-button tab="latest-movie">
+                <ion-icon name="star"></ion-icon>
+                <ion-label>Latest movie</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button tab="catalog">
+                <ion-icon name="videocam"></ion-icon>
+                <ion-label>Catalog</ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+
+    </ion-tabs>
 </ion-content>

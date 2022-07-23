@@ -1,3 +1,17 @@
 <ion-content>
-  Works Latest Movie!
+    <lottie-player *ngIf="loading$ | async" class="img-full" src="https://assets6.lottiefiles.com/datafiles/nT4vnUFY9yay7QI/data.json" background="transparent" speed="0.5" autoplay loop></lottie-player>
+    <ion-card *ngIf="latestMovie$ | async as movie">
+        <img *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}" />
+        <img *ngIf="!movie.poster_path" src="https://ionicframework.com/docs/demos/api/card/madison.jpg" />
+        <ion-card-header>
+            <ion-card-title>{{movie.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            {{movie.overview}}
+            <br>
+            <ion-chip color="success" *ngFor="let genre of movie.genres">
+                <ion-label>{{genre.name}}</ion-label>
+            </ion-chip>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
